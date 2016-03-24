@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerList = new List<GameObject>();
-        CreatePlayers();
+        //CreatePlayers();
 	}
 	
 	// Update is called once per frame
