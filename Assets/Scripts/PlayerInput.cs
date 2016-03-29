@@ -2,34 +2,34 @@
 using System.Collections;
 using InControl;
 
-public class AztlanPlayerActions : PlayerActionSet
-{
-    public PlayerAction Punch;
-    public PlayerAction Kick;
-    public PlayerAction Block;
-    public PlayerAction Pray;
-	public PlayerAction Jump;
-	public PlayerAction Left;
-	public PlayerAction Right;
-	public PlayerAction Up;
-	public PlayerAction Down;
-	public PlayerOneAxisAction Move;
+//public class AztlanPlayerActions : PlayerActionSet
+//{
+//    public PlayerAction Punch;
+//    public PlayerAction Kick;
+//    public PlayerAction Block;
+//    public PlayerAction Pray;
+//    public PlayerAction Jump;
+//    public PlayerAction Left;
+//    public PlayerAction Right;
+//    public PlayerAction Up;
+//    public PlayerAction Down;
+//    public PlayerOneAxisAction Move;
 
 
-	public AztlanPlayerActions()
-	{
-		Punch = CreatePlayerAction( "Punch" );
-        Kick = CreatePlayerAction("Kick");
-		Jump = CreatePlayerAction( "Jump" );
-        Block = CreatePlayerAction( "Block" );
-        Pray = CreatePlayerAction("Pray");
-		Left = CreatePlayerAction( "Move Left" );
-		Right = CreatePlayerAction( "Move Right" );
-		Up = CreatePlayerAction( "Look Up" );
-		Down = CreatePlayerAction( "Crouch" );
-        //Move = CreateOneAxisPlayerAction( Left, Right );
-	}
-}
+//    public AztlanPlayerActions()
+//    {
+//        Punch = CreatePlayerAction( "Punch" );
+//        Kick = CreatePlayerAction("Kick");
+//        Jump = CreatePlayerAction( "Jump" );
+//        Block = CreatePlayerAction( "Block" );
+//        Pray = CreatePlayerAction("Pray");
+//        Left = CreatePlayerAction( "Move Left" );
+//        Right = CreatePlayerAction( "Move Right" );
+//        Up = CreatePlayerAction( "Look Up" );
+//        Down = CreatePlayerAction( "Crouch" );
+//        //Move = CreateOneAxisPlayerAction( Left, Right );
+//    }
+//}
 
 
 public class PlayerInput : MonoBehaviour {
