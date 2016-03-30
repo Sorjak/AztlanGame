@@ -159,7 +159,7 @@ public class AztlanInput : PlatformerPro.Input
         get
         {
             //float axisValue = playerActions.Up.Value - playerActions.Down.Value;
-            float axisValue = playerActions.MoveVertical.Value;
+            float axisValue = -playerActions.MoveVertical.Value;
             if (axisValue > 0 || axisValue < 0)
                 return axisValue;
             else

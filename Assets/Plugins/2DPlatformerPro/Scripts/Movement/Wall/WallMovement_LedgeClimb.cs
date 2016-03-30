@@ -214,9 +214,12 @@ namespace PlatformerPro
 			// Early out if falling
 			if (fallTimer > 0.0f) return;
 
+            
+
 			// Check for fall key
 			if (UserPressingFallKey ())
 			{
+                Debug.Log("PRESSING FALL KEY");
 				if (ledgeClimbState == LedgeClimbState.HANGING || ledgeClimbState == LedgeClimbState.GRASPING  )
 				{
 					ledgeClimbState = LedgeClimbState.DISMOUNTING;
@@ -226,6 +229,7 @@ namespace PlatformerPro
 
 			if (ledgeClimbState == LedgeClimbState.HANGING && UserPressingClimbKey ())
 			{
+                Debug.Log("Climbing");
 				ledgeClimbState = LedgeClimbState.CLIMBING;
 			}
 
@@ -233,15 +237,19 @@ namespace PlatformerPro
 			switch (ledgeClimbState)
 			{
 				case LedgeClimbState.REACHING:
+                    Debug.Log("Reaching");
 					character.DefaultAirMovement.DoMove();
 					break;
 				case LedgeClimbState.GRASPING:
+                    Debug.Log("Grasping");
 					MoveToHangPosition();
 					break;
 				case LedgeClimbState.HANGING:
+                    Debug.Log("Hanging");
 					MoveToHangPosition();
 					break;
 				case LedgeClimbState.DISMOUNTING:
+                    Debug.Log("Dismounting");
 					MoveToDismountPosition();
 					break;
 
@@ -632,8 +640,8 @@ namespace PlatformerPro
 					}
 				} 
 			}
-			else if (ledgeClimbState == LedgeClimbState.DISMOUNTING) 
-			{
+			else if (ledgeClimbState == LedgeClimbState.DISMOUNTING)
+            {
 				if ((info.IsName(AnimationState.LEDGE_DISMOUNT.AsString()) && info.normalizedTime >= 1))
 				{
 					ledgeClimbState = LedgeClimbState.DISMOUNT_FINISHED;
@@ -666,14 +674,14 @@ namespace PlatformerPro
 		/// </summary>
 		virtual protected void MoveToDismountPosition()
 		{
-//			AnimatorStateInfo info = myAnimator.GetCurrentAnimatorStateInfo(0);
+            AnimatorStateInfo info = myAnimator.GetCurrentAnimatorStateInfo(0);
 			if (animationTargetting == LedgeClimbAnimationTargetting.BAKED )
 			{
 				// Here we assume the hand used to grab is the hand the pushes away from the ledge
 				// Vector2 handOffset = Vector2.Lerp (Vector2.zero, currentLedgePosition - (Vector2)myAnimator.GetBoneTransform (graspingBone).position, 1.0f - info.normalizedTime);
 				Vector2 handOffset = currentLedgePosition - (Vector2)myAnimator.GetBoneTransform (graspingBone).position;
 				character.Translate (handOffset.x, handOffset.y, true);
-			}
+            }
 		}
 
 		/// <summary>
@@ -704,8 +712,7 @@ namespace PlatformerPro
 		/// <returns><c>true</c>, if user pressing a fall key, <c>false</c> otherwise.</returns>
 		virtual protected bool UserPressingFallKey()
 		{
-			// Pressed Jump
-			if (character.Input.JumpButton == ButtonState.DOWN) return true;
+
 			// Holding or Pressing Down
 			if (character.Input.VerticalAxisDigital == -1) return true;
 			// Holding or pressing away from the ledge
@@ -723,6 +730,8 @@ namespace PlatformerPro
 		{
 			// Holding or Pressing Down
 			if (character.Input.VerticalAxisDigital == 1) return true;
+            // Pressed Jump
+            if (character.Input.JumpButton == ButtonState.DOWN) return true;
 			return false;
 		}
 
