@@ -219,7 +219,6 @@ namespace PlatformerPro
 			// Check for fall key
 			if (UserPressingFallKey ())
 			{
-                Debug.Log("PRESSING FALL KEY");
 				if (ledgeClimbState == LedgeClimbState.HANGING || ledgeClimbState == LedgeClimbState.GRASPING  )
 				{
 					ledgeClimbState = LedgeClimbState.DISMOUNTING;
@@ -229,7 +228,6 @@ namespace PlatformerPro
 
 			if (ledgeClimbState == LedgeClimbState.HANGING && UserPressingClimbKey ())
 			{
-                Debug.Log("Climbing");
 				ledgeClimbState = LedgeClimbState.CLIMBING;
 			}
 
@@ -237,19 +235,15 @@ namespace PlatformerPro
 			switch (ledgeClimbState)
 			{
 				case LedgeClimbState.REACHING:
-                    Debug.Log("Reaching");
 					character.DefaultAirMovement.DoMove();
 					break;
 				case LedgeClimbState.GRASPING:
-                    Debug.Log("Grasping");
 					MoveToHangPosition();
 					break;
 				case LedgeClimbState.HANGING:
-                    Debug.Log("Hanging");
 					MoveToHangPosition();
 					break;
 				case LedgeClimbState.DISMOUNTING:
-                    Debug.Log("Dismounting");
 					MoveToDismountPosition();
 					break;
 

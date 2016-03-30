@@ -139,7 +139,7 @@ public class AztlanInput : PlatformerPro.Input
 
     public override int HorizontalAxisDigital
     {
-        get { return Mathf.Abs(HorizontalAxis) > .25f ? (int)HorizontalAxis : 0; }
+        get { return Mathf.Abs(HorizontalAxis) > .25f ? (int) Mathf.Sign(HorizontalAxis) : 0; }
     }
 
     public override ButtonState HorizontalAxisState
@@ -169,7 +169,7 @@ public class AztlanInput : PlatformerPro.Input
 
     public override int VerticalAxisDigital
     {
-        get { return Mathf.Abs(VerticalAxis) > .25f ? (int)VerticalAxis : 0; }
+        get { return Mathf.Abs(VerticalAxis) > .25f ? (int) Mathf.Sign(VerticalAxis) : 0; }
     }
 
     public override ButtonState VerticalAxisState

@@ -99,7 +99,7 @@ namespace PlatformerPro
 					// Next animation has higher priority, play it now
 					if (nextPriority >= priority || info.normalizedTime >= 1.0f || info.loop)
 					{
-                        Debug.Log("Moving to: " + nextState);
+                        //Debug.Log("Moving to: " + nextState);
 						myAnimator.Play(nextState);
 						state = nextState;
 						priority = nextPriority;

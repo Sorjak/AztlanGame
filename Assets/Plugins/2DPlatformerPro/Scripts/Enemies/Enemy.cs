@@ -1017,12 +1017,19 @@ namespace PlatformerPro
 					OnDamaged (info);
 					State = EnemyState.DAMAGED;
 					invulnerableTimer = invulnerableTime;
+                    if (info.DamageType == DamageType.PHYSICAL)
+                    {
+                        Vector2 moveForceVector = -info.Direction * info.Amount * 5f;
+                        Debug.Log(moveForceVector);
+                        Velocity = moveForceVector;
+                    }
 				}
 			}
 			else
 			{
 				OnCollided(info);
 			}
+
 		}
 
 		

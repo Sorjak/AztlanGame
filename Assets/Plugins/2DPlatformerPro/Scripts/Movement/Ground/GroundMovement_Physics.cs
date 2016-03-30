@@ -240,7 +240,8 @@ namespace PlatformerPro
 			// Apply acceleration
 			if (Mathf.Abs (character.Input.HorizontalAxisDigital * acceleration) > ignoreForce)
 			{
-				character.AddVelocity((useAnalogueInput ? character.Input.HorizontalAxis : (float)character.Input.HorizontalAxisDigital) * acceleration * TimeManager.FrameTime, 0, false);
+                float velocityX = (useAnalogueInput ? character.Input.HorizontalAxis : (float)character.Input.HorizontalAxisDigital) * acceleration * TimeManager.FrameTime;
+				character.AddVelocity(velocityX, 0, false);
 				hasAppliedForce = true;
 			}
 
