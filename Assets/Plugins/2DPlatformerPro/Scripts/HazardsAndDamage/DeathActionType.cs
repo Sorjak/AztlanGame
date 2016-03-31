@@ -17,7 +17,8 @@ namespace PlatformerPro
 		CLEAR_RESPAWN_POINTS	=	16,		// Clear respawn points
 		DESTROY_CHARACTER		=	32,		// Destroy game object.
 		RESET_DATA				=   64,		// Reset data for the persistable objects
-		RESET_SCORE				=	128		// Reset the given score
+		RESET_SCORE				=	128,	// Reset the given score
+        AZTLAN_RESPAWN			=	256		// Reset the given score
 	}
 
 }

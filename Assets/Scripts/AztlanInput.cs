@@ -58,17 +58,17 @@ public class AztlanInput : PlatformerPro.Input
     // Use this for initialization
     void Start()
     {
-        var numDevices = InputManager.Devices.Count;
+        //var numDevices = InputManager.Devices.Count;
 
-        for (int i = 0; i < numDevices; i++)
-        {
-            InputDevice device = InputManager.Devices[i];
-            if (device != null)
-            {
-                SetUpController(device);
-            }
+        //for (int i = 0; i < numDevices; i++)
+        //{
+        //    InputDevice device = InputManager.Devices[i];
+        //    if (device != null)
+        //    {
+        //        SetUpController(device);
+        //    }
 
-        }
+        //}
     }
 
     // Update is called once per frame

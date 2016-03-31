@@ -434,6 +434,7 @@ namespace PlatformerPro
 		/// <param name="amount">Amount.</param>
 		virtual public void Damage(int amount)
 		{
+
 			if (!dying && !IsInvulnerable)
 			{
 				health -= amount;
@@ -562,7 +563,7 @@ namespace PlatformerPro
 					dying = false;
 					LevelManager.Instance.Respawn(character);
 					break;
-			case DeathActionType.RELOAD_SCENE:
+			    case DeathActionType.RELOAD_SCENE:
 					#if !UNITY_4_6 && !UNITY_5_1 && !UNITY_5_2
 					SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 					#else
@@ -593,6 +594,12 @@ namespace PlatformerPro
 				case DeathActionType.RESET_SCORE:
 					ScoreManager.GetInstanceForType(action.supportingData).ResetScore();
 					break;
+                case DeathActionType.AZTLAN_RESPAWN:
+                    health = startingHealth;
+                    dying = false;
+                    character.Respawn ();
+                    //AztlanGame.GameController.RespawnPlayer(character.gameObject);
+                    break;
 			}
 		}
 
